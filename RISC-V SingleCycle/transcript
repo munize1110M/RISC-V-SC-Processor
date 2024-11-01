@@ -1,0 +1,59 @@
+# Compile of adder.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of aludec.sv was successful.
+# Compile of controller.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of dmem.sv was successful.
+# Compile of extend.sv was successful.
+# Compile of flopr.sv was successful.
+# Compile of imem.sv was successful.
+# Compile of maindec.sv was successful.
+# Compile of mux2.sv was successful.
+# Compile of mux3.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of testbench.sv was successful.
+# Compile of riscvsingle.sv was successful.
+# Compile of top.sv was successful.
+# 16 compiles, 0 failed with no errors.
+vsim -gui work.testbench
+# vsim -gui work.testbench 
+# Start time: 12:50:25 on Oct 24,2024
+# Loading sv_std.std
+# Loading work.testbench
+# Loading work.top
+# Loading work.riscvsingle
+# Loading work.controller
+# Loading work.maindec
+# Loading work.aludec
+# Loading work.datapath
+# Loading work.flopr
+# Loading work.adder
+# Loading work.mux2
+# Loading work.regfile
+# Loading work.extend
+# Loading work.alu
+# Loading work.mux3
+# Loading work.imem
+# Loading work.dmem
+add wave -position insertpoint  \
+sim:/testbench/dut/rvsingle/clk \
+sim:/testbench/dut/rvsingle/reset \
+sim:/testbench/dut/rvsingle/PC \
+sim:/testbench/dut/rvsingle/Instr
+add wave -position insertpoint  \
+sim:/testbench/dut/rvsingle/dp/ALUResult \
+sim:/testbench/dut/rvsingle/dp/SrcA \
+sim:/testbench/dut/rvsingle/dp/SrcB
+add wave -position insertpoint  \
+sim:/testbench/dut/rvsingle/c/MemWrite
+add wave -position insertpoint  \
+sim:/testbench/dut/WriteData \
+sim:/testbench/dut/DataAdr
+run 200
+# SRA functions
+# Simulation Succeded: BLT Functions
+# ** Note: $stop    : C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/testbench.sv(48)
+#    Time: 115 ps  Iteration: 1  Instance: /testbench
+# Break in Module testbench at C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/testbench.sv line 48
+# End time: 20:44:07 on Oct 24,2024, Elapsed time: 7:53:42
+# Errors: 0, Warnings: 2

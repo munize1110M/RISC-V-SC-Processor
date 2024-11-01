@@ -1,0 +1,1511 @@
+Analysis & Synthesis report for Single_cycle
+Fri Oct 25 16:56:58 2024
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|flopr:pcreg
+ 13. Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|mux2:pcmux
+ 14. Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|mux2:srcbmux
+ 15. Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|mux3:resultmux
+ 16. Port Connectivity Checks: "riscvsingle:rvsingle|datapath:dp|adder:pcadd4"
+ 17. Port Connectivity Checks: "riscvsingle:rvsingle|controller:c"
+ 18. Post-Synthesis Netlist Statistics for Top Partition
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
+ 21. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Fri Oct 25 16:56:58 2024       ;
+; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                   ; Single_cycle                                ;
+; Top-level Entity Name           ; top                                         ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 2336                                        ;
+; Total pins                      ; 67                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
+; Top-level entity name                                                           ; top                ; Single_cycle       ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 8           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 8           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                        ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                    ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------+---------+
+; top.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/top.sv           ;         ;
+; riscvsingle.sv                   ; yes             ; User SystemVerilog HDL File  ; C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/riscvsingle.sv   ;         ;
+; regfile.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/regfile.sv       ;         ;
+; mux3.sv                          ; yes             ; User SystemVerilog HDL File  ; C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/mux3.sv          ;         ;
+; mux2.sv                          ; yes             ; User SystemVerilog HDL File  ; C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/mux2.sv          ;         ;
+; maindec.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/maindec.sv       ;         ;
+; imem.sv                          ; yes             ; User SystemVerilog HDL File  ; C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/imem.sv          ;         ;
+; flopr.sv                         ; yes             ; User SystemVerilog HDL File  ; C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/flopr.sv         ;         ;
+; extend.sv                        ; yes             ; User SystemVerilog HDL File  ; C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/extend.sv        ;         ;
+; dmem.sv                          ; yes             ; User SystemVerilog HDL File  ; C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/dmem.sv          ;         ;
+; datapath.sv                      ; yes             ; User SystemVerilog HDL File  ; C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/datapath.sv      ;         ;
+; controller.sv                    ; yes             ; User SystemVerilog HDL File  ; C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/controller.sv    ;         ;
+; aludec.sv                        ; yes             ; User SystemVerilog HDL File  ; C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/aludec.sv        ;         ;
+; alu.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/alu.sv           ;         ;
+; adder.sv                         ; yes             ; User SystemVerilog HDL File  ; C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/adder.sv         ;         ;
+; blt_sra_test.txt                 ; yes             ; Auto-Found File              ; C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/blt_sra_test.txt ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 1852      ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 1695      ;
+;     -- 7 input functions                    ; 70        ;
+;     -- 6 input functions                    ; 982       ;
+;     -- 5 input functions                    ; 167       ;
+;     -- 4 input functions                    ; 96        ;
+;     -- <=3 input functions                  ; 380       ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 2336      ;
+;                                             ;           ;
+; I/O pins                                    ; 67        ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 2336      ;
+; Total fan-out                               ; 15570     ;
+; Average fan-out                             ; 3.74      ;
++---------------------------------------------+-----------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                          ;
++------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------+-------------+--------------+
+; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                     ; Entity Name ; Library Name ;
++------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------+-------------+--------------+
+; |top                         ; 1695 (0)            ; 2336 (0)                  ; 0                 ; 0          ; 67   ; 0            ; |top                                                    ; top         ; work         ;
+;    |dmem:dmem|               ; 863 (863)           ; 2048 (2048)               ; 0                 ; 0          ; 0    ; 0            ; |top|dmem:dmem                                          ; dmem        ; work         ;
+;    |imem:imem|               ; 23 (23)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|imem:imem                                          ; imem        ; work         ;
+;    |riscvsingle:rvsingle|    ; 809 (0)             ; 288 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |top|riscvsingle:rvsingle                               ; riscvsingle ; work         ;
+;       |controller:c|         ; 20 (9)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|riscvsingle:rvsingle|controller:c                  ; controller  ; work         ;
+;          |aludec:ad|         ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|riscvsingle:rvsingle|controller:c|aludec:ad        ; aludec      ; work         ;
+;          |maindec:md|        ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|riscvsingle:rvsingle|controller:c|maindec:md       ; maindec     ; work         ;
+;       |datapath:dp|          ; 789 (0)             ; 288 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |top|riscvsingle:rvsingle|datapath:dp                   ; datapath    ; work         ;
+;          |adder:pcadd4|      ; 30 (30)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4      ; adder       ; work         ;
+;          |adder:pcaddbranch| ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch ; adder       ; work         ;
+;          |alu:alu|           ; 321 (321)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|riscvsingle:rvsingle|datapath:dp|alu:alu           ; alu         ; work         ;
+;          |extend:ext|        ; 6 (6)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|riscvsingle:rvsingle|datapath:dp|extend:ext        ; extend      ; work         ;
+;          |flopr:pcreg|       ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |top|riscvsingle:rvsingle|datapath:dp|flopr:pcreg       ; flopr       ; work         ;
+;          |mux2:srcbmux|      ; 35 (35)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|riscvsingle:rvsingle|datapath:dp|mux2:srcbmux      ; mux2        ; work         ;
+;          |mux3:resultmux|    ; 34 (34)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|riscvsingle:rvsingle|datapath:dp|mux3:resultmux    ; mux3        ; work         ;
+;          |regfile:rf|        ; 331 (331)           ; 256 (256)                 ; 0                 ; 0          ; 0    ; 0            ; |top|riscvsingle:rvsingle|datapath:dp|regfile:rf        ; regfile     ; work         ;
++------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                ;
++-----------------------------------------------------+---------------------------------------------+
+; Register name                                       ; Reason for Removal                          ;
++-----------------------------------------------------+---------------------------------------------+
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~928  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~992  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~896  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~960  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~929  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~993  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~897  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~961  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~930  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~994  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~898  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~962  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~931  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~995  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~899  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~963  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~932  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~996  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~900  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~964  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~933  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~997  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~901  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~965  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~934  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~998  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~902  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~966  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~935  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~999  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~903  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~967  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~936  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~1000 ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~904  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~968  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~937  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~1001 ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~905  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~969  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~938  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~1002 ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~906  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~970  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~939  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~1003 ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~907  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~971  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~940  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~1004 ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~908  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~972  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~941  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~1005 ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~909  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~973  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~942  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~1006 ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~910  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~974  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~943  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~1007 ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~911  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~975  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~944  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~1008 ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~912  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~976  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~945  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~1009 ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~913  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~977  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~946  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~1010 ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~914  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~978  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~947  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~1011 ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~915  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~979  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~948  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~1012 ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~916  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~980  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~949  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~1013 ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~917  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~981  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~950  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~1014 ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~918  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~982  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~951  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~1015 ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~919  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~983  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~952  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~1016 ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~920  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~984  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~953  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~1017 ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~921  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~985  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~954  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~1018 ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~922  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~986  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~955  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~1019 ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~923  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~987  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~956  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~1020 ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~924  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~988  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~957  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~1021 ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~925  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~989  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~958  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~1022 ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~926  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~990  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~959  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~1023 ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~927  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~991  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~800  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~864  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~768  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~832  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~801  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~865  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~769  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~833  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~802  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~866  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~770  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~834  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~803  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~867  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~771  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~835  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~804  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~868  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~772  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~836  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~805  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~869  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~773  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~837  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~806  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~870  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~774  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~838  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~807  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~871  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~775  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~839  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~808  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~872  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~776  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~840  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~809  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~873  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~777  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~841  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~810  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~874  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~778  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~842  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~811  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~875  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~779  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~843  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~812  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~876  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~780  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~844  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~813  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~877  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~781  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~845  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~814  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~878  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~782  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~846  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~815  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~879  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~783  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~847  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~816  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~880  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~784  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~848  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~817  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~881  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~785  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~849  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~818  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~882  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~786  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~850  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~819  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~883  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~787  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~851  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~820  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~884  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~788  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~852  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~821  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~885  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~789  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~853  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~822  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~886  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~790  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~854  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~823  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~887  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~791  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~855  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~824  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~888  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~792  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~856  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~825  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~889  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~793  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~857  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~826  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~890  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~794  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~858  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~827  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~891  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~795  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~859  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~828  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~892  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~796  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~860  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~829  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~893  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~797  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~861  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~830  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~894  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~798  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~862  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~831  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~895  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~799  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~863  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~416  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~480  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~384  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~448  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~640  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~704  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~417  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~481  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~385  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~449  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~641  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~705  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~418  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~482  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~386  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~450  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~642  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~706  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~419  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~483  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~387  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~451  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~643  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~707  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~420  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~484  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~388  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~452  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~644  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~708  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~421  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~485  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~389  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~453  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~645  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~709  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~422  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~486  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~390  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~454  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~646  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~710  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~423  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~487  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~391  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~455  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~647  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~711  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~424  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~488  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~392  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~456  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~648  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~712  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~425  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~489  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~393  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~457  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~649  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~713  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~426  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~490  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~394  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~458  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~650  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~714  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~427  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~491  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~395  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~459  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~651  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~715  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~428  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~492  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~396  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~460  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~652  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~716  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~429  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~493  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~397  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~461  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~653  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~717  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~430  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~494  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~398  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~462  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~654  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~718  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~431  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~495  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~399  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~463  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~655  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~719  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~432  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~496  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~400  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~464  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~656  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~720  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~433  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~497  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~401  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~465  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~657  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~721  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~434  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~498  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~402  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~466  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~658  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~722  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~435  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~499  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~403  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~467  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~659  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~723  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~436  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~500  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~404  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~468  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~660  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~724  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~437  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~501  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~405  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~469  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~661  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~725  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~438  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~502  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~406  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~470  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~662  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~726  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~439  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~503  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~407  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~471  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~663  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~727  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~440  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~504  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~408  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~472  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~664  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~728  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~441  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~505  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~409  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~473  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~665  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~729  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~442  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~506  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~410  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~474  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~666  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~730  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~443  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~507  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~411  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~475  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~667  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~731  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~444  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~508  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~412  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~476  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~668  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~732  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~445  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~509  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~413  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~477  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~669  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~733  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~446  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~510  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~414  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~478  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~670  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~734  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~447  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~511  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~415  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~479  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~671  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~735  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~288  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~352  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~256  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~320  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~512  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~576  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~289  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~353  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~257  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~321  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~513  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~577  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~290  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~354  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~258  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~322  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~514  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~578  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~291  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~355  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~259  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~323  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~515  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~579  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~292  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~356  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~260  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~324  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~516  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~580  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~293  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~357  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~261  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~325  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~517  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~581  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~294  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~358  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~262  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~326  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~518  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~582  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~295  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~359  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~263  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~327  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~519  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~583  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~296  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~360  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~264  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~328  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~520  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~584  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~297  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~361  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~265  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~329  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~521  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~585  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~298  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~362  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~266  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~330  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~522  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~586  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~299  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~363  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~267  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~331  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~523  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~587  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~300  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~364  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~268  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~332  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~524  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~588  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~301  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~365  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~269  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~333  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~525  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~589  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~302  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~366  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~270  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~334  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~526  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~590  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~303  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~367  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~271  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~335  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~527  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~591  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~304  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~368  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~272  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~336  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~528  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~592  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~305  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~369  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~273  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~337  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~529  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~593  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~306  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~370  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~274  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~338  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~530  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~594  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~307  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~371  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~275  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~339  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~531  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~595  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~308  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~372  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~276  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~340  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~532  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~596  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~309  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~373  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~277  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~341  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~533  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~597  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~310  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~374  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~278  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~342  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~534  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~598  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~311  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~375  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~279  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~343  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~535  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~599  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~312  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~376  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~280  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~344  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~536  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~600  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~313  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~377  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~281  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~345  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~537  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~601  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~314  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~378  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~282  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~346  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~538  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~602  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~315  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~379  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~283  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~347  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~539  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~603  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~316  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~380  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~284  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~348  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~540  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~604  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~317  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~381  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~285  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~349  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~541  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~605  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~318  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~382  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~286  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~350  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~542  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~606  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~319  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~383  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~287  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~351  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~543  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~607  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~672  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~736  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~673  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~737  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~674  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~738  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~675  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~739  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~676  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~740  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~677  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~741  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~678  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~742  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~679  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~743  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~680  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~744  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~681  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~745  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~682  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~746  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~683  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~747  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~684  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~748  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~685  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~749  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~686  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~750  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~687  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~751  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~688  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~752  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~689  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~753  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~690  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~754  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~691  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~755  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~692  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~756  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~693  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~757  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~694  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~758  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~695  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~759  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~696  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~760  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~697  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~761  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~698  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~762  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~699  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~763  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~700  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~764  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~701  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~765  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~702  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~766  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~703  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~767  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~544  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~608  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~545  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~609  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~546  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~610  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~547  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~611  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~548  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~612  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~549  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~613  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~550  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~614  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~551  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~615  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~552  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~616  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~553  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~617  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~554  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~618  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~555  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~619  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~556  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~620  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~557  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~621  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~558  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~622  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~559  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~623  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~560  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~624  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~561  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~625  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~562  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~626  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~563  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~627  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~564  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~628  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~565  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~629  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~566  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~630  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~567  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~631  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~568  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~632  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~569  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~633  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~570  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~634  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~571  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~635  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~572  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~636  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~573  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~637  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~574  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~638  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~575  ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~639  ; Stuck at GND due to stuck port clock_enable ;
+; Total Number of Removed Registers = 768             ;                                             ;
++-----------------------------------------------------+---------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                               ;
++----------------------------------------------------+--------------------------------+-----------------------------------------------------+
+; Register name                                      ; Reason for Removal             ; Registers Removed due to This Register              ;
++----------------------------------------------------+--------------------------------+-----------------------------------------------------+
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~447 ; Stuck at GND                   ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~289, ;
+;                                                    ; due to stuck port clock_enable ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~353, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~257, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~321, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~513, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~577, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~290, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~354, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~258, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~322, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~514, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~578, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~291, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~355, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~259, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~323, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~515, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~579, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~293, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~357, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~261, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~325, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~517, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~581, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~294, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~358, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~262, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~326, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~518, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~582, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~296, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~360, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~264, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~328, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~520, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~584, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~297, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~361, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~265, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~329, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~521, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~585, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~299, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~363, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~267, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~331, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~523, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~587, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~300, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~364, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~268, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~332, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~524, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~588, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~302, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~366, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~270, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~334, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~526, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~590, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~303, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~367, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~271, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~335, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~527, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~591, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~305, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~369, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~273, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~337, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~529, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~593, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~306, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~370, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~274, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~338, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~530, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~594, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~308, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~372, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~276, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~340, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~532, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~596, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~309, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~373, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~277, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~341, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~533, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~597, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~311, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~375, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~279, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~343, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~535, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~599, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~312, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~376, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~280, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~344, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~536, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~600, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~314, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~378, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~282, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~346, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~538, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~602, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~315, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~379, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~283, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~347, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~539, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~603, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~317, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~381, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~285, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~349, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~541, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~605, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~318, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~382, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~286, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~350, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~542, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~606, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~673, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~737, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~674, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~738, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~675, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~739, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~677, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~741, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~678, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~742, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~680, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~744, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~681, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~745, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~683, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~747, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~684, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~748, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~686, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~750, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~687, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~751, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~689, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~753, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~690, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~754, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~692, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~756, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~693, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~757, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~695, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~759, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~696, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~760, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~698, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~762, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~699, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~763, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~701, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~765, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~702, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~766, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~545, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~609, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~546, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~610, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~547, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~611, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~549, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~613, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~550, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~614, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~552, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~616, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~553, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~617, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~555, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~619, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~556, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~620, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~558, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~622, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~559, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~623, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~561, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~625, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~562, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~626, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~564, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~628, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~565, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~629, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~567, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~631, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~568, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~632, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~570, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~634, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~571, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~635, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~573, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~637, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~574, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~638  ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~319 ; Stuck at GND                   ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~688, ;
+;                                                    ; due to stuck port clock_enable ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~752, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~691, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~755, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~694, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~758, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~697, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~761, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~700, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~764, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~560, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~624, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~563, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~627, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~566, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~630, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~569, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~633, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~572, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~636  ;
+; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~431 ; Stuck at GND                   ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~288, ;
+;                                                    ; due to stuck port clock_enable ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~352, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~256, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~320, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~512, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~576, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~672, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~736, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~544, ;
+;                                                    ;                                ; riscvsingle:rvsingle|datapath:dp|regfile:rf|rf~608  ;
++----------------------------------------------------+--------------------------------+-----------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 2336  ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 30    ;
+; Number of registers using Asynchronous Clear ; 32    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 2306  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |top|riscvsingle:rvsingle|datapath:dp|alu:alu|ShiftLeft0  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |top|riscvsingle:rvsingle|datapath:dp|alu:alu|ShiftLeft0  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |top|riscvsingle:rvsingle|datapath:dp|alu:alu|ShiftRight0 ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |top|riscvsingle:rvsingle|datapath:dp|alu:alu|ShiftLeft0  ;
+; 4:1                ; 50 bits   ; 100 LEs       ; 100 LEs              ; 0 LEs                  ; No         ; |top|riscvsingle:rvsingle|datapath:dp|alu:alu|ShiftRight0 ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |top|riscvsingle:rvsingle|datapath:dp|mux3:resultmux|y[2] ;
+; 15:1               ; 11 bits   ; 110 LEs       ; 99 LEs               ; 11 LEs                 ; No         ; |top|riscvsingle:rvsingle|datapath:dp|alu:alu|Mux24       ;
+; 15:1               ; 12 bits   ; 120 LEs       ; 96 LEs               ; 24 LEs                 ; No         ; |top|riscvsingle:rvsingle|datapath:dp|alu:alu|Mux10       ;
+; 18:1               ; 3 bits    ; 36 LEs        ; 33 LEs               ; 3 LEs                  ; No         ; |top|riscvsingle:rvsingle|datapath:dp|alu:alu|Mux28       ;
+; 18:1               ; 3 bits    ; 36 LEs        ; 30 LEs               ; 6 LEs                  ; No         ; |top|riscvsingle:rvsingle|datapath:dp|alu:alu|Mux1        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|flopr:pcreg ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|mux2:pcmux ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                  ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|mux2:srcbmux ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|mux3:resultmux ;
++----------------+-------+---------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                ;
++----------------+-------+---------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                      ;
++----------------+-------+---------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Port Connectivity Checks: "riscvsingle:rvsingle|datapath:dp|adder:pcadd4" ;
++----------+-------+----------+---------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                     ;
++----------+-------+----------+---------------------------------------------+
+; b[31..3] ; Input ; Info     ; Stuck at GND                                ;
+; b[1..0]  ; Input ; Info     ; Stuck at GND                                ;
+; b[2]     ; Input ; Info     ; Stuck at VCC                                ;
++----------+-------+----------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "riscvsingle:rvsingle|controller:c"                                                  ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Jump ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 2336                        ;
+;     CLR SLD           ; 30                          ;
+;     ENA               ; 2304                        ;
+;     ENA CLR           ; 2                           ;
+; arriav_lcell_comb     ; 1696                        ;
+;     arith             ; 62                          ;
+;         1 data inputs ; 30                          ;
+;         2 data inputs ; 15                          ;
+;         3 data inputs ; 1                           ;
+;         4 data inputs ; 8                           ;
+;         5 data inputs ; 8                           ;
+;     extend            ; 70                          ;
+;         7 data inputs ; 70                          ;
+;     normal            ; 1532                        ;
+;         1 data inputs ; 65                          ;
+;         2 data inputs ; 261                         ;
+;         3 data inputs ; 9                           ;
+;         4 data inputs ; 56                          ;
+;         5 data inputs ; 159                         ;
+;         6 data inputs ; 982                         ;
+;     shared            ; 32                          ;
+;         4 data inputs ; 32                          ;
+; boundary_port         ; 67                          ;
+;                       ;                             ;
+; Max LUT depth         ; 15.00                       ;
+; Average LUT depth     ; 8.29                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:09     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Fri Oct 25 16:56:37 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Single_cycle -c Single_cycle
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file top.sv
+    Info (12023): Found entity 1: top File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/top.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file testbench.sv
+    Info (12023): Found entity 1: testbench File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/testbench.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file riscvsingle.sv
+    Info (12023): Found entity 1: riscvsingle File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/riscvsingle.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file regfile.sv
+    Info (12023): Found entity 1: regfile File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/regfile.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux3.sv
+    Info (12023): Found entity 1: mux3 File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/mux3.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux2.sv
+    Info (12023): Found entity 1: mux2 File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/mux2.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file maindec.sv
+    Info (12023): Found entity 1: maindec File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/maindec.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file imem.sv
+    Info (12023): Found entity 1: imem File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/imem.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file flopr.sv
+    Info (12023): Found entity 1: flopr File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/flopr.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file extend.sv
+    Info (12023): Found entity 1: extend File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/extend.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file dmem.sv
+    Info (12023): Found entity 1: dmem File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/dmem.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file datapath.sv
+    Info (12023): Found entity 1: datapath File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/datapath.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file controller.sv
+    Info (12023): Found entity 1: controller File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/controller.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file aludec.sv
+    Info (12023): Found entity 1: aludec File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/aludec.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu.sv
+    Info (12023): Found entity 1: alu File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/alu.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file adder.sv
+    Info (12023): Found entity 1: adder File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/adder.sv Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at riscvsingle.sv(13): created implicit net for "PCSrc" File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/riscvsingle.sv Line: 13
+Info (12127): Elaborating entity "top" for the top level hierarchy
+Info (12128): Elaborating entity "riscvsingle" for hierarchy "riscvsingle:rvsingle" File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/top.sv Line: 9
+Info (12128): Elaborating entity "controller" for hierarchy "riscvsingle:rvsingle|controller:c" File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/riscvsingle.sv Line: 15
+Info (12128): Elaborating entity "maindec" for hierarchy "riscvsingle:rvsingle|controller:c|maindec:md" File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/controller.sv Line: 17
+Info (12128): Elaborating entity "aludec" for hierarchy "riscvsingle:rvsingle|controller:c|aludec:ad" File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/controller.sv Line: 18
+Info (12128): Elaborating entity "datapath" for hierarchy "riscvsingle:rvsingle|datapath:dp" File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/riscvsingle.sv Line: 20
+Info (12128): Elaborating entity "flopr" for hierarchy "riscvsingle:rvsingle|datapath:dp|flopr:pcreg" File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/datapath.sv Line: 20
+Info (12128): Elaborating entity "adder" for hierarchy "riscvsingle:rvsingle|datapath:dp|adder:pcadd4" File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/datapath.sv Line: 21
+Info (12128): Elaborating entity "mux2" for hierarchy "riscvsingle:rvsingle|datapath:dp|mux2:pcmux" File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/datapath.sv Line: 23
+Info (12128): Elaborating entity "regfile" for hierarchy "riscvsingle:rvsingle|datapath:dp|regfile:rf" File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/datapath.sv Line: 27
+Info (12128): Elaborating entity "extend" for hierarchy "riscvsingle:rvsingle|datapath:dp|extend:ext" File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/datapath.sv Line: 28
+Info (12128): Elaborating entity "alu" for hierarchy "riscvsingle:rvsingle|datapath:dp|alu:alu" File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/datapath.sv Line: 32
+Warning (10036): Verilog HDL or VHDL warning at alu.sv(9): object "v" assigned a value but never read File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/alu.sv Line: 9
+Info (12128): Elaborating entity "mux3" for hierarchy "riscvsingle:rvsingle|datapath:dp|mux3:resultmux" File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/datapath.sv Line: 33
+Info (12128): Elaborating entity "imem" for hierarchy "imem:imem" File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/top.sv Line: 10
+Warning (10850): Verilog HDL warning at imem.sv(11): number of words (12) in memory file does not match the number of elements in the address range [0:63] File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/imem.sv Line: 11
+Warning (10030): Net "RAM.data_a" at imem.sv(4) has no driver or initial value, using a default initial value '0' File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/imem.sv Line: 4
+Warning (10030): Net "RAM.waddr_a" at imem.sv(4) has no driver or initial value, using a default initial value '0' File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/imem.sv Line: 4
+Warning (10030): Net "RAM.we_a" at imem.sv(4) has no driver or initial value, using a default initial value '0' File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/imem.sv Line: 4
+Info (12128): Elaborating entity "dmem" for hierarchy "dmem:dmem" File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/top.sv Line: 11
+Info (276014): Found 3 instances of uninferred RAM logic
+    Info (276007): RAM logic "dmem:dmem|RAM" is uninferred due to asynchronous read logic File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/dmem.sv Line: 5
+    Info (276004): RAM logic "imem:imem|RAM" is uninferred due to inappropriate RAM size File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/imem.sv Line: 4
+    Info (276007): RAM logic "riscvsingle:rvsingle|datapath:dp|regfile:rf|rf" is uninferred due to asynchronous read logic File: C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/regfile.sv Line: 7
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/db/Single_cycle.ram0_imem_37c714.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/output_files/Single_cycle.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 4002 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 65 output pins
+    Info (21061): Implemented 3935 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 8 warnings
+    Info: Peak virtual memory: 4884 megabytes
+    Info: Processing ended: Fri Oct 25 16:56:58 2024
+    Info: Elapsed time: 00:00:21
+    Info: Total CPU time (on all processors): 00:00:27
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/output_files/Single_cycle.map.smsg.
+
+

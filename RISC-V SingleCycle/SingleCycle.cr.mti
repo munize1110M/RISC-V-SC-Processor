@@ -1,0 +1,113 @@
+{C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/mux3.sv} {1 {vlog -work work -sv -stats=none {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/mux3.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module mux3
+
+Top level modules:
+	mux3
+
+} {} {}} {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/datapath.sv} {1 {vlog -work work -sv -stats=none {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/datapath.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module datapath
+
+Top level modules:
+	datapath
+
+} {} {}} {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/extend.sv} {1 {vlog -work work -sv -stats=none {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/extend.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module extend
+
+Top level modules:
+	extend
+
+} {} {}} {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/alu.sv} {1 {vlog -work work -sv -stats=none {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/alu.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module alu
+
+Top level modules:
+	alu
+
+} {} {}} {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/top.sv} {1 {vlog -work work -sv -stats=none {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/top.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module top
+
+Top level modules:
+	top
+
+} {} {}} {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/dmem.sv} {1 {vlog -work work -sv -stats=none {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/dmem.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module dmem
+
+Top level modules:
+	dmem
+
+} {} {}} {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/controller.sv} {1 {vlog -work work -sv -stats=none {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/controller.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module controller
+
+Top level modules:
+	controller
+
+} {} {}} {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/mux2.sv} {1 {vlog -work work -sv -stats=none {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/mux2.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module mux2
+
+Top level modules:
+	mux2
+
+} {} {}} {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/aludec.sv} {1 {vlog -work work -sv -stats=none {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/aludec.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module aludec
+
+Top level modules:
+	aludec
+
+} {} {}} {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/regfile.sv} {1 {vlog -work work -sv -stats=none {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/regfile.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module regfile
+
+Top level modules:
+	regfile
+
+} {} {}} {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/adder.sv} {1 {vlog -work work -sv -stats=none {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/adder.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module adder
+
+Top level modules:
+	adder
+
+} {} {}} {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/testbench.sv} {1 {vlog -work work -sv -stats=none {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/testbench.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module testbench
+
+Top level modules:
+	testbench
+
+} {} {}} {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/imem.sv} {1 {vlog -work work -sv -stats=none {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/imem.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module imem
+
+Top level modules:
+	imem
+
+} {} {}} {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/maindec.sv} {1 {vlog -work work -sv -stats=none {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/maindec.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module maindec
+
+Top level modules:
+	maindec
+
+} {} {}} {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/riscvsingle.sv} {1 {vlog -work work -sv -stats=none {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/riscvsingle.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module riscvsingle
+
+Top level modules:
+	riscvsingle
+
+} {} {}} {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/flopr.sv} {1 {vlog -work work -sv -stats=none {C:/Users/wpnat/Documents/ECSE 4770 Computer Hardware Design/RISC-V SingleCycle/flopr.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module flopr
+
+Top level modules:
+	flopr
+
+} {} {}}

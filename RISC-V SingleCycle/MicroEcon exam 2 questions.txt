@@ -1,0 +1,79 @@
+q 9
+
+q 10 (need to know abt elasticity)
+	* Percentage change in quanity / percentage change in price
+	
+
+q 11 (asks equilibrium price but he could also ask equilibrium quantity)
+	when you do these questions, plug your answer back into both equations to make sure your answers are equal
+
+	q 12, q13,
+
+q 14 (deadweight loss) make sure to know bc hardest q on the exam
+
+q15 Make sure to know the graph questions. He doesn't really change them so they will be the same likely but know the
+	content
+
+q18 its a production function, but could be a cobb douglas production function which has a different process (will be cobb
+	douglas on exam)
+
+q19
+
+
+q20 comes straight out of a lecture
+
+q22 know Present Value stuff. will likely be similar question on exam just different interest rate
+
+
+q23 will get one of these questions on exam
+
+q24 is another version of this problem ^^
+
+q26 
+q27
+
+OTHER QUESTIONS (prof says will be on exam)
+
+question about long run vs short run costs
+	will either be the same or short run costs will be higher
+
+equilibrium problem
+
+tax deadweight loss problem
+
+Income elasticity question
+
+question abt the linear demand curve
+
+cost minimization problem
+
+slope of the iso problem
+
+short run profit maximization problem
+
+all 3 iso quan questions
+
+technical rate of sub question
+
+returns to scale
+	anything other than cobb douglas, always be constant returns to scale cobb douglas depends on exponent summation
+
+what happens to average cost if you have increasing
+	increae, avg cost down
+	decreasing, up
+	xxxxxx, stays the same
+
+question on consol
+
+the relationship between interest rates on taxable and non taxable bonds
+	take a look at end of tax lecture
+	the yield on a non taxable bond will equal the yield on the taxable bond times (1- the tax rate)
+
+short run profit maximization
+
+
+
+
+
+
+
